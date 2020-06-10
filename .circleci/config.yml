@@ -44,7 +44,7 @@ jobs:
       - run:
           name: "Run migrations"
           command: |
-            php artisan migrate --env=testing --database=sqlite --force
+            php artisan migrate --env=testing --force
 
       - run:
           name: "Generate Passport encryption keys"
