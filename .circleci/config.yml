@@ -39,12 +39,12 @@ jobs:
       - run:
           name: "Create database"
           command: |
-            touch database/database.sqlite
+            touch /tmp/testing.sqlite
 
       - run:
           name: "Run migrations"
           command: |
-            php artisan migrate --env=testing
+            php artisan migrate --env=testing --database=sqlite --force
 
       - run:
           name: "Generate Passport encryption keys"
