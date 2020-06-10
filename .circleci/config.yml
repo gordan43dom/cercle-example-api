@@ -37,9 +37,13 @@ jobs:
             php artisan key:generate
 
       - run:
-          name: "Create database and run migration"
+          name: "Create database"
           command: |
             touch database/database.sqlite
+
+      - run:
+          name: "Run migrations"
+          command: |
             php artisan migrate --env=testing
 
       - run:
