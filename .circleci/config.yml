@@ -1,0 +1,14 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: circleci/php:7.4-node-browsers
+
+    steps:
+      - checkout
+
+      - run:
+          name: "Prepare Environment"
+          command: |
+            sudo apt update
+            sudo docker-php-ext-install zip
