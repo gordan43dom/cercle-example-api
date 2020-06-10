@@ -45,6 +45,10 @@ jobs:
           command: |
             touch database/database.sqlite
 
+      -run:
+          name: "Clear cache"
+          command: |
+            php artisan config:cache
       - run:
           name: "Run migrations"
           command: |
