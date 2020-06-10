@@ -22,6 +22,10 @@ jobs:
             - v1-dependencies-
 
       - run:
+          name: "Install sqlite lib"
+          command: sudo apt-get install -y libsqlite3-dev
+
+      - run:
           name: "Install Dependencies"
           command: composer install -n --prefer-dist
 
@@ -39,7 +43,7 @@ jobs:
       - run:
           name: "Create database"
           command: |
-            touch /tmp/testing.sqlite
+            touch database/database.sqlite
 
       - run:
           name: "Run migrations"
