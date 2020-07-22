@@ -38,6 +38,7 @@ jobs:
           name: "Create Environment file and generate app key"
           command: |
             cp .env.testing .env
+            chmod 777 .env
             php artisan key:generate
 
       - run:
