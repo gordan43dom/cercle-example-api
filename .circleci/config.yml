@@ -56,6 +56,10 @@ jobs:
           command: php artisan passport:install
 
       - run:
+          name: "Print env file"
+          command: cat .env
+
+      - run:
           name: "Run Tests"
           command: |
             php artisan config:clear
