@@ -41,19 +41,15 @@ jobs:
             php artisan key:generate
 
       - run:
-          name: "Create database"
+          name: "Create database and run migration"
           command: |
             touch database/database.sqlite
+            php artisan migrate --env=testing
 
       - run:
           name: "Clear cache"
           command: |
             php artisan config:cache
-
-      - run:
-          name: "Run migrations"
-          command: |
-            php artisan migrate --env=testing --force
 
       - run:
           name: "Generate Passport encryption keys"
