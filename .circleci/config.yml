@@ -38,8 +38,8 @@ jobs:
           name: "Create Environment file and generate app key"
           command: |
             cp .env.testing .env
-            chmod 777 .env
-            php artisan key:generate
+            app_key=$(php artisan key:generate --show)
+            echo APP_KEY=$app_key >> .env
 
       - run:
           name: "Create database and run migration"
